@@ -1,3 +1,6 @@
+
+== How to use ==
+
 GetProxy程序使用搜索引擎来查找代理公布网站，然后从这些网站寻找代理地址，
 并自动对代理进行验证。
 
@@ -47,7 +50,8 @@ GetProxy程序使用搜索引擎来查找代理公布网站，然后从这些网
   getproxy  --debug=3
   getproxy  --aim=www.nsfocus.com --threads=15 --timeout=5 --number=50
   getproxy  --type=socks5 --key="socks5代理 每日更新" --engine="google"
-  getproxy  --load-urls=url.txt 
+  getproxy  --load-urls=url.txt
+  getproxy  --url=http://somesite.com/page
   getproxy  --load-proxys=proxy.txt 
   getproxy  --load-proxys=proxy.txt  --type=socks5
   getproxy  --raw-search-uri='search.yahoo.com/search?p=%E4%BB%A3%E7%90%86+%E6%9B%B4%E6%96%B0'

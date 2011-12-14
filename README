@@ -1,62 +1,61 @@
-
-== How to use ==
+# How to use
 
 GetProxy程序使用搜索引擎来查找代理公布网站，然后从这些网站寻找代理地址，
 并自动对代理进行验证。
 
-使用: getproxy [ 选项 ]
-选项:
-  --aim=测试站点     默认值："www.microsoft.com"
-  --aim-port=端口    默认值：80
-  --timeout=超时     默认值：10 ，单位：秒
-  --threads=线程个数 默认值：10
-  --number=代理个数  默认值：10
-  --type=代理类型    默认值：http，取值范围："http" / "socks5"
-  --format=输出格式  默认值：""，目前可取："net-trans"输出"影音传送带"支持格式
-  --debug=调试级别   默认值：1，取值范围：[0 5]
-  --key=搜索关键字   默认值："代理 每日更新 TYPE"，TYPE为--type选项值
-  --engine=搜索引擎  默认值："baidu"，可取值："google" / "baidu"
-  --search-uri=搜索引擎URI
-  --raw-seach-uri=搜索引擎原始URI
-  --load-urls=URL列表文件
-  --load-proxys=PROXY列表文件
-  --encoding=终端编码, (e.g utf-8)
-  --help
-  --version
-
-说明：
-  程序使用搜索引擎进行搜索时是靠--search-uri和--key来构建搜索用的URI的，其中关键字会被编码。
-  编码后的KEY和--search-uri的值组成的串等效于--raw-search-uri指定的值。
-  如果指定了--engine，那么系统会使用内置的对应的search-uri。
-  --search-uri指定搜索引擎的URI，这就有可能使用其他的搜索引擎，目前
-    google为：http://www.google.com/search?ie=UTF-8&oe=UTF-8&num=100&q=
-    baidu为 ：http://www.baidu.com/s?rn=100&wd=
-    bing为  ：http://cn.bing.com/search?&go=&qs=n&sk=&form=QBLH&q=
-    如果指定了该选项，那么--engine选项将失效。
-  --raw-seach-uri选项也使得可以使用任何搜索引擎。
-    如果指定了该选项，那么--search-uri、--key、--engine选项都将失效。
-  --load-urls=URL列表文件，指定了该选项后程序将不去连接搜索引擎查找代理发布站点，而是直接从
-    指定文件中读取这些站点的URL，每个URL存放在单独一行。平时可以将收集到的好的代理发布站点页
-    地址存放在文件中。
-  --url 提取某个网页的有效代理
-  --proxy 使用HTTP代理
-  --load-proxys=PROXY列表文件,指定该选项后想到于对已有的代理进行验证。每个代理存放单独一行，
-    主机地址和端口间用英文冒号":"号分隔。如果是验证Socks5代理必须同时指定--type=socks5
-  Windows主机用户需要注意：由于Perl对Win32线程支持不太好，在Win32上线程个数不要指定太大（如
-  超过5），程序退出时会发生程序错误，但不影响程序使用 ！
-
-示例：
-  getproxy 
-  getproxy  --debug=3
-  getproxy  --aim=www.nsfocus.com --threads=15 --timeout=5 --number=50
-  getproxy  --type=socks5 --key="socks5代理 每日更新" --engine="google"
-  getproxy  --load-urls=url.txt
-  getproxy  --url=http://somesite.com/page
-  getproxy  --load-proxys=proxy.txt 
-  getproxy  --load-proxys=proxy.txt  --type=socks5
-  getproxy  --raw-search-uri='search.yahoo.com/search?p=%E4%BB%A3%E7%90%86+%E6%9B%B4%E6%96%B0'
-
-编写：watercloud (watercloud@nsfocus.com watercloud@xfocus.org)
-日期：2005-6-21   更新：2005-11-5
-更新：henices 2011-11-29 (zhouzhenster@gmail.com)
-当前版本0.3
+    使用: getproxy [ 选项 ]
+    选项:
+      --aim=测试站点     默认值："www.microsoft.com"
+      --aim-port=端口    默认值：80
+      --timeout=超时     默认值：10 ，单位：秒
+      --threads=线程个数 默认值：10
+      --number=代理个数  默认值：10
+      --type=代理类型    默认值：http，取值范围："http" / "socks5"
+      --format=输出格式  默认值：""，目前可取："net-trans"输出"影音传送带"支持格式
+      --debug=调试级别   默认值：1，取值范围：[0 5]
+      --key=搜索关键字   默认值："代理 每日更新 TYPE"，TYPE为--type选项值
+      --engine=搜索引擎  默认值："baidu"，可取值："google" / "baidu"
+      --search-uri=搜索引擎URI
+      --raw-seach-uri=搜索引擎原始URI
+      --load-urls=URL列表文件
+      --load-proxys=PROXY列表文件
+      --encoding=终端编码, (e.g utf-8)
+      --help
+      --version
+    
+    说明：
+      程序使用搜索引擎进行搜索时是靠--search-uri和--key来构建搜索用的URI的，其中关键字会被编码。
+      编码后的KEY和--search-uri的值组成的串等效于--raw-search-uri指定的值。
+      如果指定了--engine，那么系统会使用内置的对应的search-uri。
+      --search-uri指定搜索引擎的URI，这就有可能使用其他的搜索引擎，目前
+        google为：http://www.google.com/search?ie=UTF-8&oe=UTF-8&num=100&q=
+        baidu为 ：http://www.baidu.com/s?rn=100&wd=
+        bing为  ：http://cn.bing.com/search?&go=&qs=n&sk=&form=QBLH&q=
+        如果指定了该选项，那么--engine选项将失效。
+      --raw-seach-uri选项也使得可以使用任何搜索引擎。
+        如果指定了该选项，那么--search-uri、--key、--engine选项都将失效。
+      --load-urls=URL列表文件，指定了该选项后程序将不去连接搜索引擎查找代理发布站点，而是直接从
+        指定文件中读取这些站点的URL，每个URL存放在单独一行。平时可以将收集到的好的代理发布站点页
+        地址存放在文件中。
+      --url 提取某个网页的有效代理
+      --proxy 使用HTTP代理
+      --load-proxys=PROXY列表文件,指定该选项后想到于对已有的代理进行验证。每个代理存放单独一行，
+        主机地址和端口间用英文冒号":"号分隔。如果是验证Socks5代理必须同时指定--type=socks5
+      Windows主机用户需要注意：由于Perl对Win32线程支持不太好，在Win32上线程个数不要指定太大（如
+      超过5），程序退出时会发生程序错误，但不影响程序使用 ！
+    
+    示例：
+      getproxy 
+      getproxy  --debug=3
+      getproxy  --aim=www.nsfocus.com --threads=15 --timeout=5 --number=50
+      getproxy  --type=socks5 --key="socks5代理 每日更新" --engine="google"
+      getproxy  --load-urls=url.txt
+      getproxy  --url=http://somesite.com/page
+      getproxy  --load-proxys=proxy.txt 
+      getproxy  --load-proxys=proxy.txt  --type=socks5
+      getproxy  --raw-search-uri='search.yahoo.com/search?p=%E4%BB%A3%E7%90%86+%E6%9B%B4%E6%96%B0'
+    
+    编写：watercloud (watercloud@nsfocus.com watercloud@xfocus.org)
+    日期：2005-6-21   更新：2005-11-5
+    更新：henices 2011-11-29 (zhouzhenster@gmail.com)
+    当前版本0.3
